@@ -10,7 +10,7 @@
 
 ### Step 2: Develop the CLI Framework for Levi
 
-- **Duration**: 1 weeks
+- **Duration**: 1 days
 - **Task**:
   - Utilize `clap` to create the basic CLI structure that allows users to choose options like framework and ORM.
 - **Output**:
@@ -27,7 +27,7 @@
 
 ### Step 4: Implement Template Processing Logic in Levi
 
-- **Duration**: 1 weeks
+- **Duration**: 4 days
 - **Task**:
   - Write the logic to copy the selected template from the repository to the user's desired directory.
   - Include post-processing to customize template files (e.g., setting project names).
