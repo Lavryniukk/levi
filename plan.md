@@ -7,12 +7,10 @@
   - List all the combinations of Rust frameworks and ORMs you want to support (e.g., Axum with Diesel, Actix with Sea-ORM).
 - **Output**:
   - A document detailing each template’s structure and the features Levi will offer, such as scaffolding, optional Docker integration, and README generation.
-- **List**:
-  -
 
 ### Step 2: Develop the CLI Framework for Levi
 
-- **Duration**: 2 weeks
+- **Duration**: 1 weeks
 - **Task**:
   - Utilize `clap` to create the basic CLI structure that allows users to choose options like framework and ORM.
 - **Output**:
@@ -20,16 +18,16 @@
 
 ### Step 3: Create and Organize Templates for Levi
 
-- **Duration**: 3 weeks
+- **Duration**: 2 weeks
 - **Task**:
   - Create a base project in the `templates` directory for each combination decided in Step 1.
   - Ensure each template is a minimal but functional starter kit for the specified stack.
 - **Output**:
-  - A repository of organized templates that can be cloned or copied.
+  - A repository of organized templates that can be cloned or copied.ё
 
 ### Step 4: Implement Template Processing Logic in Levi
 
-- **Duration**: 2 weeks
+- **Duration**: 1 weeks
 - **Task**:
   - Write the logic to copy the selected template from the repository to the user's desired directory.
   - Include post-processing to customize template files (e.g., setting project names).
