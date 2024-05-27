@@ -1,7 +1,9 @@
+use std::process::Command;
+
 use args::LeviArgs;
 use clap::Parser;
-use variants::{TemplateVariants, IntoArray};
-use dialoguer::{theme::ColorfulTheme, Select};
+use variants::{ToGithubUrl, IntoArray, TemplateVariant};
+use dialoguer::{theme::ColorfulTheme, Input, Select};
 
 
 mod args;
@@ -17,8 +19,41 @@ fn main() {
     }
 }
 
+fn clone_template(repo_url: &str, destination: &str) -> Result<(), std::io::Error> {
+    Command::new("git")
+        .args(["clone", repo_url, destination])
+        .status()?;
+    
+    Ok(())
+}
+
 fn get_stack_choice() {
-    let options = TemplateVariants::into_array();
+    let chosen_template = get_template_input();
+    let destination =  get_destination_input();
+    match chosen_template {
+        TemplateVariant::ActSeaJun => {
+            println!("You selected {}", TemplateVariant::ActSeaJun.to_string());
+            clone_template(TemplateVariant::to_github_url(&TemplateVariant::ActSeaJun), &destination).unwrap();
+        },
+        TemplateVariant::ActSea => {            
+            println!("You selected {}", TemplateVariant::ActSea.to_string());
+            clone_template(TemplateVariant::to_github_url(&TemplateVariant::ActSea), &destination).unwrap();
+
+        },
+        TemplateVariant::AxuSea => {
+            println!("You selected {}", TemplateVariant::AxuSea.to_string());
+            clone_template(TemplateVariant::to_github_url(&TemplateVariant::AxuSea), &destination).unwrap();
+        },
+        TemplateVariant::AxuSeaJun => {
+            println!("You selected {}", TemplateVariant::AxuSeaJun.to_string());
+            clone_template(TemplateVariant::to_github_url(&TemplateVariant::AxuSeaJun), &destination).unwrap();
+        }
+    }
+}
+
+
+fn get_template_input() -> TemplateVariant {
+    let options = TemplateVariant::into_array();
     let selection = Select::with_theme(&ColorfulTheme::default())
         .with_prompt("Pick your option")
         .default(0)
@@ -27,19 +62,11 @@ fn get_stack_choice() {
         .unwrap();
 
     let selected_option = options[selection];
-    let option = TemplateVariants::from(selected_option);
-    match option {
-        TemplateVariants::ActSeaJun => {
-            println!("You selected {}", TemplateVariants::ActSeaJun.to_string())
-        },
-        TemplateVariants::ActSea => {
-            println!("You selected {}", TemplateVariants::ActSea.to_string())
-        },
-        TemplateVariants::AxuSea => {
-            println!("You selected {}", TemplateVariants::AxuSea.to_string())
-        },
-        TemplateVariants::AxuSeaJun => {
-            println!("You selected {}", TemplateVariants::AxuSeaJun.to_string())
-        }
-    }
+    TemplateVariant::from(selected_option)
+}
+
+fn get_destination_input() -> String{
+    Input::with_theme(&ColorfulTheme::default())
+    .with_prompt("Please enter the destination folder for your new project")
+    .interact_text().unwrap()
 }
