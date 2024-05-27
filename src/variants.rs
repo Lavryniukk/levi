@@ -6,9 +6,6 @@ pub enum TemplateVariant {
     AxuSeaJun
 }
 
-pub trait IntoArray {
-    fn into_array() -> Vec<&'static str>;
-}
 
 pub trait ToGithubUrl {
     fn to_github_url(&self) -> &'static str;
@@ -47,6 +44,10 @@ impl ToString for TemplateVariant {
             TemplateVariant::AxuSeaJun => "Axum + SeaORM + Juniper".to_string()
         }
     }
+}
+
+pub trait IntoArray {
+    fn into_array() -> Vec<&'static str>;
 }
 
 impl IntoArray for TemplateVariant {
