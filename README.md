@@ -17,9 +17,12 @@ To start a new project, run Levi and follow the interactive prompts to choose yo
 
 Levi supports a range of Rust web frameworks for creating REST 🌐 or GraphQL (using Juniper) 🌿 APIs. Here are some combinations you can start with:
 
-- **Actix + Sea-ORM**: Fast Actix-web with flexible Sea-ORM for REST or GraphQL (using Juniper).
-- **Axum + Sea-ORM**: Axum and Sea-ORM setup for REST or GraphQL (using Juniper).
-- **Yew + Axum + Sea-ORM**: Full-stack with Yew, Axum, and Sea-ORM, capable of REST or GraphQL (using Juniper).
+- **Actix + Sea-ORM + Juniper**: Fast Actix-web with flexible Sea-ORM and GraphQL .
+
+- **Actix + Sea-ORM**: Actix and Sea-ORM setup for REST .
+
+- **Yew**: Simple frontend application with Yew .
+
 - **Yew + Actix + Sea-ORM**: Full-stack with Yew, Actix-web, Sea-ORM, for REST or GraphQL (using Juniper).
 
 ## Getting Started 🌟
