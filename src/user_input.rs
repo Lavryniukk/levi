@@ -6,7 +6,7 @@ use crate::{args, variants::{CloneRepo, IntoVec, TemplateVariant}};
 pub fn get_stack_choice_and_clone_repo() {
     let chosen_template = get_template_input();
     let destination =  get_destination_input();
-    TemplateVariant::clone_template_repo(&chosen_template, &destination)
+    TemplateVariant::clone_template_repo(&chosen_template, &destination).expect("Failed to clone the repo");
 }
 
 
