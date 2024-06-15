@@ -74,8 +74,8 @@ impl IntoVec for TemplateVariant {
         Vec::from([
             "Actix-Web + SeaORM + Juniper",
             "Actix-Web + SeaORM",
-            "Axum + SeaORM",
-            "Axum + SeaORM + Juniper" 
+            // "Axum + SeaORM",
+            // "Axum + SeaORM + Juniper" 
         ])      
     }
 }
