@@ -2,6 +2,14 @@
 name = "levi"
 version = "0.1.0"
 edition = "2021"
+authors = ["Lev Lavryniuk <leoyt109@gmail.com>"]
+license = "MIT"
+description = "Rust Web App Bootstrapper"
+readme = "README.md"
+homepage = "https://github.com/lavryniukk/levi"
+repository = "https://github.com/lavryniukk/levi"
+keywords = ["cli", "bootstrap", "web"]
+categories = ["command-line-utilities", "web"]
 
 [dependencies]
 clap = { version = "4.5.0", features = ["derive"] }
